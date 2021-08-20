@@ -13,6 +13,7 @@ def get_dice_side():
         return int(sides)
     except ValueError:
         print('Invalid response please enter numbers')
+        return get_dice_side()
 
 
 # gets the amount of dice being rolled
@@ -27,6 +28,7 @@ def dice_amount():
         return int(amount)
     except ValueError:
         print('Invalid response please enter numbers')
+        return dice_amount()
 
 
 # combines the other two and uses them to roll what the user wants
@@ -35,9 +37,10 @@ def dice_amount():
 def dice_roll(side, number):
     total = []
     for n in range(number):
-        roll = random.randint(1, side)
+        roll = random.randint(1, int(side))
         total.append(roll)
     if number == 1:
         print('Your roll was: ', total)
     else:
+        print(f'Your rolls are: {total}')
         print('Your rolls total was: ', sum(total))
